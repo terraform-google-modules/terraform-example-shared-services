@@ -31,6 +31,14 @@ FOLDER_ID="509020581346"
 TF_STATE_BUCKET="apszaz-tfstate"
 # Billing account to attach to the projects
 BILLING_ACCOUNT="0131D6-94FD9F-065EAB"
+# User that will be granted access to the instances created. You can add more 
+# users later by modifying the parameters.tf files. Defaults to current user.
+GCLOUD_USER=$(gcloud config list account --format "value(core.account)")
+# Domain of your GCP organization. Defaults to the current user's domain.
+GCP_DOMAIN=$(echo $GCLOUD_USER | cut -d @ -f 2)
+# User group where the log sink service accounts will be added. You will need
+# to create this group in Cloud Identity. Defaults to proxy-notifiers@domain.com
+NOTIFIERS_GROUP="proxy-notifiers@${GCP_DOMAIN}"
 
 ###############################################################################
 # Optionally, change the following parameters
@@ -113,6 +121,12 @@ gsutil iam ch serviceAccount:${SA_EMAIL}:objectAdmin gs://$TF_STATE_BUCKET
 echo "Updating terraform configuration files"
 
 # Update the terraform config files
+export GCLOUD_USER
+perl -e 's/myaccount\@my-domain.com/$ENV{"GCLOUD_USER"}/' -pi */params.tfvars
+export NOTIFIERS_GROUP
+perl -e 's/proxy-notifiers\@my-domain.com/$ENV{"NOTIFIERS_GROUP"}/' -pi */params.tfvars
+export GCP_DOMAIN
+perl -e 's/my-domain.com/$ENV{"GCP_DOMAIN"}/' -pi */params.tfvars
 export SA_PATH
 perl -e 's/^(\s*gcp_credentials_path\s*=\s*")([^"]+)(".*)$/$1$ENV{"SA_PATH"}$3/' -pi */params.tfvars
 export PRJ_SHARED_SERVICES
