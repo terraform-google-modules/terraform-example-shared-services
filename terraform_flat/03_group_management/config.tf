@@ -8,7 +8,7 @@
 # group management: https://github.com/DeviaVir/terraform-provider-gsuite
 provider "gsuite" {
   credentials             = "${file(var.credentials_path)}"
-  impersonated_user_email = "alfonso@my-domain.com"
+  impersonated_user_email = "myaccount@my-domain.com"
   oauth_scopes = [
     "https://www.googleapis.com/auth/admin.directory.group",
     "https://www.googleapis.com/auth/admin.directory.group.member"

@@ -8,7 +8,7 @@ region     = "europe-west4"
 zone       = "europe-west4-c"
 # List of users or groups that will be allowed to SSH into the instances of the project.
 iap_tunnel_users = [
-  "user:alfonso@my-domain.com",
+  "user:myaccount@my-domain.com",
 ]
 squid_no_proxy = [
   ".googleapis.com",

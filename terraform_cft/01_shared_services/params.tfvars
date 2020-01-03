@@ -11,7 +11,7 @@ dns_main_domain = "mydomain.com"
 dns_services_subdomain = "services"
 # List of users or groups that will be allowed to SSH into the instances of the project.
 iap_tunnel_users = [
-  "user:alfonso@my-domain.com",
+  "user:myaccount@my-domain.com",
 ]
 # List of service accounts that will be allowed to post messages to the PubSub
 # topic. If you can, create a group in Cloud Identity and add the CNZ log sink 
