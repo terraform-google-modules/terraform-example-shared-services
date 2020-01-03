@@ -2,7 +2,7 @@
 
 ## Overview
 
-This folder comtains a flat implementation of the [shared services architecture](../) that does not use any terraform modules and relies only on the terraform resources from the [Google Cloud Platform Provider](https://www.terraform.io/docs/providers/google/index.html). This flat and verbose approach will allow us to explain each one of the architectire components in a series of Medium articles.
+This folder comtains a flat implementation of the [shared services architecture](../README.md) that does not use any terraform modules and relies only on the terraform resources from the [Google Cloud Platform Provider](https://www.terraform.io/docs/providers/google/index.html). This flat and verbose approach will allow us to explain each one of the architectire components in a series of Medium articles.
 
 ## Components
 
