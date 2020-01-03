@@ -15,7 +15,7 @@ resource "google_compute_forwarding_rule" "tcp_lb_example" {
   project     = "${local.project_id}"
   region      = "${google_compute_subnetwork.service.region}"
   ip_address  = "${google_compute_address.tcp_lb_example.address}"
-  target      = "${google_compute_target_pool.shared_service_2.self_link}"
+  target      = "${google_compute_target_pool.shared_service.self_link}"
   ip_protocol = "TCP"
   all_ports   = false
   port_range  = "80"
@@ -31,7 +31,7 @@ resource "google_compute_address" "tcp_lb_example" {
 }
 
 # Use a target pool containing the  instance: the web server of the example service
-resource "google_compute_target_pool" "shared_service_2" {
+resource "google_compute_target_pool" "shared_service" {
   name             = "tcp-lb2-target-pool"
   project          = "${local.project_id}"
   region           = "${google_compute_subnetwork.service.region}"
