@@ -41,7 +41,7 @@ To run this script you will need to have the proper permissions to:
 *  Link projects to a billing account (Billing Account User role).
 *  Grant owner permissions on the project just created.
 
-If you managed run the `env_setup.sh` script successfully, most of the configuration is ready. You will only need to make smapp adjustments to the `01_shared_services/params.tfvars` and `02_cn_zone/params.tfvars` files. You will need to at least change the parameters where "@my-domain.com" is found.
+If you managed run the `env_setup.sh` script successfully, most of the configuration is ready. You will only need to make small adjustments to the `01_shared_services/params.tfvars` and `02_cn_zone/params.tfvars` files. You will need to at least change the parameters where "@my-domain.com" is found.
 
 Once the configuration is updated:
 
@@ -52,4 +52,4 @@ Once the configuration is updated:
   b. If you created a proxy notifiers group in Cloud Identity, add the service account to the group.
 4. The Shared service firewall rule will be updated the next time the CNX proxy managed instance group adds or removes an instance. You can manually change the min/max instances in the instance group to provoke this update.
 
-You should now having a fully functional shared services architecture. 
+You should now have a fully functional shared services architecture. 

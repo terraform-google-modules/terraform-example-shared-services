@@ -38,6 +38,10 @@ BILLING_ACCOUNT="0131D6-94FD9F-065EAB"
 # Optional: add a random suffix to the project and bucket IDs. Comment out if
 # not needed.
 RANDOM_SUFFIX=$(hexdump -n 3 -e '4/4 "%04X" 1 "\n"' /dev/random | tr '[:upper:]' '[:lower:]' | xargs)
+# Overrite the random suffix if provided in connand line
+if [ "$#" == "1" ]; then
+  RANDOM_SUFFIX="$1"
+fi
 TF_STATE_BUCKET="${TF_STATE_BUCKET}-${RANDOM_SUFFIX}"
 PRJ_SHARED_SERVICES="${PRJ_SHARED_SERVICES}-${RANDOM_SUFFIX}"
 PRJ_APPLICATION="${PRJ_APPLICATION}-${RANDOM_SUFFIX}"
@@ -127,4 +131,3 @@ perl -e 's/^(\s*bucket\s*=\s*")([^"]+)(".*)$/$1$ENV{"TF_STATE_BUCKET"}$3/' -pi *
 # Update the remote state prefix in the config files
 export TF_STATE_PREFIX
 perl -e 's/^(\s*prefix\s*=\s*")([^"\/]+)(["\/].*)$/$1$ENV{"TF_STATE_PREFIX"}$3/' -pi */config.tf
-
