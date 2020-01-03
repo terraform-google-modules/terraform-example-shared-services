@@ -20,7 +20,7 @@ module "outbound_proxy_ilb" {
   #source  = "GoogleCloudPlatform/lb-internal/google"
   #version = "2.0.1"
 
-  source = "../../../../CFT/FORKS/terraform-google-lb-internal"
+  source = "../../../terraform-google-lb-internal/"
 
   region      = "${var.region}"
   name        = "outbound-proxy"
