@@ -19,6 +19,99 @@ You will find here two different terraform implemantations of the architecture d
 
 ## Resources
 
-**TODO**: Describe the GCP resources used in this architecture.
+The following resources will be created in the shared services project:
+```(bash)
+# VPC network
+google_compute_network.svc_network
+google_compute_subnetwork.service
 
+# Reserved IP addresses for the sample service and the health check service
+google_compute_address.healthz
+google_compute_address.tcp_lb_example
+
+# Configuration to allow ssh connections to the instances via the IAP
+google_compute_firewall.allow_ssh_from_iap_to_all
+google_iap_tunnel_instance_iam_policy.healthz
+google_service_account_iam_member.tunnel_user[0]
+
+# VM instances for the sample service and the health check service
+google_compute_instance.healthz
+google_compute_instance.sample_service
+
+# TCP load balancer for the sample service
+google_compute_forwarding_rule.tcp_lb_example
+google_compute_target_pool.shared_service
+
+# DNS private zone and records for the sample service and health service
+google_dns_managed_zone.services
+google_dns_record_set.outbound_proxy
+google_dns_record_set.service_catalog[0]
+google_dns_record_set.service_catalog[1]
+
+# The cloud function that update sthe firewall rules
+google_cloudfunctions_function.fw_updater
+google_storage_bucket.cloud_function
+google_storage_bucket_object.cloud_function
+
+# Custom role and permissions for the Cloud Function service account
+google_project_iam_custom_role.fw_rule_updater
+google_project_iam_member.fw_rule_updater
+
+# PubSub topic where autoscale notifications will be received
+google_pubsub_topic.proxy_updates
+google_pubsub_topic_iam_member.proxy_notifiers[0]
+
+# Service accounts for the Cloud Function and the shared services
+google_service_account.fw_updater_cf
+google_service_account.shared_service
+```
+
+The following resources will be created in the Cloud Native Zone project:
+
+```(bash)
+# VPC network
+google_compute_network.cnz_network
+google_compute_subnetwork.service
+google_compute_subnetwork.application
+
+# Reserved IP addresses for the ILB in front of the outgoing proxy
+google_compute_address.outbound_proxy
+
+# Configuration to allow ssh connections to the instances via the IAP
+google_compute_firewall.allow_ssh_from_iap_to_all
+google_iap_tunnel_instance_iam_policy.client_app
+google_service_account_iam_member.tunnel_user[0]
+
+# Allowed communications through proxy
+google_compute_firewall.allow_from_all_to_proxy
+google_compute_firewall.allow_from_squid_proxy_to_shared_services
+
+# VM instance for the test application
+google_compute_instance.client_app
+
+# Instance group for the outbound proxy
+google_compute_instance_group_manager.outbound_proxy
+google_compute_instance_template.outbound_proxy
+google_compute_autoscaler.outbound_proxy
+google_project_iam_member.proxy_log_writer
+
+# Internal Load Balancer for the outbound proxy
+google_compute_forwarding_rule.outbound_proxy
+google_compute_health_check.outbound_proxy
+google_compute_region_backend_service.outbound_proxy
+
+# DNS private zone managed (peered) from the shared services project
+google_dns_managed_zone.services
+
+# Log sink that sends autoscaling notifs to the shared services PubSub
+google_logging_project_sink.autoscaler
+
+# Custom role and permissions for the Cloud Function service account
+google_project_iam_custom_role.fw_rule_updater
+google_project_iam_member.fw_rule_updater
+
+# Service accounts for the proxy instances and the test application instance
+google_service_account.application_sa
+google_service_account.squid_proxy
+```
 
