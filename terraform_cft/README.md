@@ -2,7 +2,7 @@
 
 ## Overview
 
-This folder comtains a [CFT based implementation](./terraform_cft), that relies on the [Cloud Foundation Toolkit modules](https://github.com/terraform-google-modules). This implementation is much more compact and streamlined than the [flat implementation](../terraform_flat), and serves as a real world example of how you can leverage CFT modules to simplify your GCP infrastructure deployments.
+This folder comtains a CFT based implementation of the [shared services architecture](../README.md) that relies on the [Cloud Foundation Toolkit modules](https://github.com/GoogleCloudPlatform/cloud-foundation-toolkit). This implementation is much more compact and streamlined than the [flat implementation](../terraform_flat), and serves as a real world example of how you can leverage the [CFT modules](https://github.com/terraform-google-modules) to simplify your GCP infrastructure deployments.
 
 ## Components
 

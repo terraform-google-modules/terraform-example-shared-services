@@ -15,7 +15,7 @@ On the other side, the Shared Services will expose the services via TCP or HTTP 
 You will find here two different terraform implemantations of the architecture described above:
 
 1. A [flat implementation](./terraform_flat) that does not use any terraform modules and relies only on the terraform resources from the [Google Cloud Platform Provider](https://www.terraform.io/docs/providers/google/index.html). This flat and verbose approach will allow us to explain each one of the architectire components in a series of Medium articles.
-2. A [CFT based implementation](./terraform_cft), that relies on the (Cloud Foundation Toolkit modules)[https://github.com/terraform-google-modules]. This implementation is much more compact and streamlined, and serves as a real world example of how you can leverage CFT modules to simplify your GCP infrastructure deployments.
+2. A [CFT based implementation](./terraform_cft), that relies on the [Cloud Foundation Toolkit modules](https://github.com/GoogleCloudPlatform/cloud-foundation-toolkit). This implementation is much more compact and streamlined, and serves as a real world example of how you can leverage CFT modules to simplify your GCP infrastructure deployments.
 
 ## Resources
 
