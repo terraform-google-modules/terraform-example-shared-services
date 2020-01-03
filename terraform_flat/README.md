@@ -1,4 +1,4 @@
-# Shared Services architecture
+# Shared Services architecture: flat implementation
 
 ## Overview
 
