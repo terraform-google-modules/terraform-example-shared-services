@@ -24,4 +24,19 @@ The implementation consists in the following elements:
 
 ## Setup instructions
 
-**TODO**: complete setup instructions 
+This implementation uses CFT's project factory module to create the project necessary to run the demo. You will not need to create these projects manually, but will need to run this terraform configuration with a service account that has the following permissions:
+
+ * Permissions required by the project factory module under the folder where the projects will be created ([see](https://github.com/terraform-google-modules/terraform-google-project-factory#permissions))
+ * Permissions to create a log sink on the chosen folder ([see](https://github.com/terraform-google-modules/terraform-google-event-function/tree/master/modules/event-folder-log-entry#iam-roles))
+
+The `env_setup.sh` script helps you apply your configuration on the terraform files. Sinply edit the `env_setup.sh` file, replace the placeholders and run the script.\
+
+If you managed run the `env_setup.sh` script successfully, most of the configuration is ready. Scan through the files to make sure everything looks correct..
+
+Once the configuration is updated:
+
+1. Apply the terraform configuration from the `00_projects` folder.
+2. Apply the terraform configuration from the `01_shared_services` folder.
+3. Apply the terraform configuration from the `02_cn_zone` folder.
+
+You should now have a fully functional shared services architecture. 

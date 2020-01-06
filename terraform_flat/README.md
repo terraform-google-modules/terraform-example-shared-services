@@ -41,7 +41,7 @@ To run this script you will need to have the proper permissions to:
 *  Link projects to a billing account (Billing Account User role).
 *  Grant owner permissions on the project just created.
 
-If you managed run the `env_setup.sh` script successfully, most of the configuration is ready. You will only need to make small adjustments to the `01_shared_services/params.tfvars` and `02_cn_zone/params.tfvars` files. You will need to at least change the parameters where "@my-domain.com" is found.
+If you managed to run the `env_setup.sh` script successfully, most of the configuration is ready.  Scan through the files to make sure everything looks correct.
 
 Once the configuration is updated:
 
