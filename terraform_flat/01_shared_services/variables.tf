@@ -67,6 +67,7 @@ variable "proxy_address" {
 
 variable "random_suffix" {
   description = "Add a random suffix to some resources to make it simpler to run tests."
+  default = true
 }
 
 variable "gcp_credentials_path" {

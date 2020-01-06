@@ -26,6 +26,14 @@ variable "application_project" {
 variable "project_services" {
   description = "The GCP services required to in the projects."
   type        = "list"
+  default     = [
+    "compute.googleapis.com",
+    "logging.googleapis.com",
+    "dns.googleapis.com",
+    "pubsub.googleapis.com",
+    "iap.googleapis.com",
+    "cloudfunctions.googleapis.com",
+]
 }
 
 variable "gcp_credentials_path" {
@@ -34,4 +42,5 @@ variable "gcp_credentials_path" {
 
 variable "random_suffix" {
   description = "Add a random suffix to some resources to make it simpler to run tests."
+  default = true
 }
