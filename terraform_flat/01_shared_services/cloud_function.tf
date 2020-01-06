@@ -19,7 +19,7 @@ resource "google_cloudfunctions_function" "fw_updater" {
     resource   = "projects/${local.project_id}/topics/${google_pubsub_topic.proxy_updates.name}"
   }
 
-    environment_variables = {
+  environment_variables = {
     # ID of the Shared Services project, where the fireall rules will be created
     SRV_PROJECT = "${local.project_id}"
     # Network in the Shared Services project where the services instances are located.
@@ -28,9 +28,9 @@ resource "google_cloudfunctions_function" "fw_updater" {
     PROXY_PORTS = "${join(",", formatlist("%s", var.proxy_allowed_ports))}"
     # Service accounts take precedence over tags. If you declare the former, the latter
     # will be ignored when creating the firewall rule.
-    TARGET_SAS = "${join(",", formatlist("%s", local.proxy_target_sas))}"
+    TARGET_SAS  = "${join(",", formatlist("%s", local.proxy_target_sas))}"
     TARGET_TAGS = "${join(",", formatlist("%s", local.proxy_target_tags))}"
-  } 
+  }
 }
 
 # Push the zip file containing the cloud function to the bucket

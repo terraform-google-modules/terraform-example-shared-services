@@ -18,10 +18,10 @@ resource "google_compute_region_instance_group_manager" "outbound_proxy" {
 
 # Simple autoscaler configuration based on CPU usage.
 resource "google_compute_region_autoscaler" "outbound_proxy" {
-  name     = "outbound-proxy-autoscaler"
-  project  = "${local.project_id}"
-  region   = "${var.region}"
-  target   = "${google_compute_region_instance_group_manager.outbound_proxy.self_link}"
+  name    = "outbound-proxy-autoscaler"
+  project = "${local.project_id}"
+  region  = "${var.region}"
+  target  = "${google_compute_region_instance_group_manager.outbound_proxy.self_link}"
 
   autoscaling_policy {
     min_replicas    = 1
