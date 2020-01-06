@@ -3,7 +3,6 @@
  * or representation for any use or purpose. Your use of it is subject to your 
  * agreement with Google.  
  */
-project_id = "apszaz-shsvc-app-5af0da"
 region     = "europe-west4"
 zone       = "europe-west4-c"
 # List of users or groups that will be allowed to SSH into the instances of the project.

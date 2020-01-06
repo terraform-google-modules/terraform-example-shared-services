@@ -13,13 +13,11 @@ resource "google_compute_address" "healthz" {
   region      = "${var.region}"
 }
 
-module "compute_instance" {
-  source  = "terraform-google-modules/vm/google//modules/compute_instance"
-  version = "1.3.0"
+resource "google_compute_instance_from_template" "healthz" {
+  name = "healthz"
+  zone = "${var.zone}"
 
-  hostname          = "healthz"
-  instance_template = "${module.instance_template_healthz.self_link}"
-  subnetwork        = "${local.subnetwork_link}"
+  source_instance_template = "${module.instance_template_healthz.self_link}"
 }
 
 module "instance_template_healthz" {

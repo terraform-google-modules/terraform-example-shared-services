@@ -16,6 +16,7 @@ resource "google_project_iam_custom_role" "fw_rule_updater" {
   permissions = [
     # needs to get the instances attached to the outbound proxy managed instance group
     "compute.instanceGroups.get",
+    "compute.instanceGroupManagers.get",
     # for each proxy instance, needs to get the external IP address
     "compute.instances.get",
   ]

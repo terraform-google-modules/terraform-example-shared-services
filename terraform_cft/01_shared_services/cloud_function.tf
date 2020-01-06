@@ -4,12 +4,18 @@
  * agreement with Google.  
  */
 module "proxy_autoscale_event" {
-  source  = "terraform-google-modules/event-function/google//modules/event-folder-log-entry"
-  version = "1.2.0"
+  # FIXME: the current version of this module published under the terraform registry does not
+  # support the include_children option. Using a local version of the module until this PR makes
+  # its way to the registry.
+  # Pull request: https://github.com/terraform-google-modules/terraform-google-event-function/pull/39
+  source = "../../../terraform-google-event-function/modules/event-folder-log-entry"
+
+  # source  = "terraform-google-modules/event-function/google//modules/event-folder-log-entry"
+  # version = "1.2.0" # Update version number once the PR is live
 
   filter     = <<EOF
 resource.type="gce_instance_group" AND 
-jsonPayload.resource.name="squid-igm" AND
+jsonPayload.resource.name="outbound-proxy-mig" AND
 jsonPayload.resource.type="instanceGroup" AND
 jsonPayload.event_subtype=("compute.instanceGroups.removeInstances" OR "compute.instanceGroups.addInstances") AND
 jsonPayload.event_type="GCE_OPERATION_DONE"
@@ -17,6 +23,7 @@ EOF
   name       = "proxy-autoscaler-sink"
   project_id = "${local.project_id}"
   folder_id  = "${local.folder_id}"
+  include_children = true
 }
 
 module "firewall_updater" {

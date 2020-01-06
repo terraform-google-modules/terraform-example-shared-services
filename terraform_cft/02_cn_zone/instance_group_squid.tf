@@ -13,6 +13,7 @@ module "outbound_proxy_mig" {
   region            = "${var.region}"
   hostname          = "outbound-proxy"
   instance_template = "${module.instance_template_squid.self_link}"
+  autoscaling_enabled = true
   min_replicas      = 1
   max_replicas      = 3
   autoscaling_cpu = [

@@ -3,10 +3,6 @@
  * or representation for any use or purpose. Your use of it is subject to your 
  * agreement with Google.  
  */
-variable "project_id" {
-  description = "The GCP project ID"
-}
-
 variable "region" {
   description = "Region to build infrastructure"
   default     = "europe-west4"
