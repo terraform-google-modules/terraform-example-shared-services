@@ -3,11 +3,11 @@
  * or representation for any use or purpose. Your use of it is subject to your 
  * agreement with Google.  
  */
-gcp_billing_id          = "0131D6-94FD9F-065EAB"
-gcp_org_id              = "116143322321"
-folder_id               = "509020581346"
-shared_services_project = "shsvc-poc-ssv"
-application_project     = "shsvc-poc-app"
+gcp_billing_id          = "YOUR_BILLING_ID"
+gcp_org_id              = "YOUR_ORG_ID"
+folder_id               = "YOUR_FOLDER_ID"
+shared_services_project = "YOUR_PROJECT_ID"
+application_project     = "YOUR_PROJECT_ID"
 project_services = [
   "compute.googleapis.com",
   "logging.googleapis.com",
@@ -17,4 +17,4 @@ project_services = [
   "cloudfunctions.googleapis.com",
 ]
 random_suffix        = "true"
-gcp_credentials_path = "/Users/alpalacios/Workspaces/credentials/tf-vdf-bootstrap.json"
+gcp_credentials_path = "/path/to/service_account_key.json"

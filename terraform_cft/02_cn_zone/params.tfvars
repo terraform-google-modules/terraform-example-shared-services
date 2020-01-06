@@ -7,7 +7,7 @@ region = "europe-west4"
 zone   = "europe-west4-c"
 # List of users or groups that will be allowed to SSH into the instances of the project.
 iap_tunnel_users = [
-  "user:alfonso@apszaz.com",
+  "user:myaccount@my-domain.com",
 ]
 squid_no_proxy = [
   ".googleapis.com",
@@ -19,4 +19,4 @@ squid_whitelist = [
   #".example2.com",
 ]
 random_suffix        = true
-gcp_credentials_path = "/Users/alpalacios/Workspaces/credentials/tf-vdf-bootstrap.json"
+gcp_credentials_path = "/path/to/service_account_key.json"

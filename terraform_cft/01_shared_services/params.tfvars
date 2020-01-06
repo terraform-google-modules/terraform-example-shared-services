@@ -25,4 +25,4 @@ iap_tunnel_users = [
 # account that we are attaching to the healthz and example services.
 #proxy_target_sas = []
 random_suffix        = true
-gcp_credentials_path = "/Users/alpalacios/Workspaces/credentials/tf-vdf-bootstrap.json"
+gcp_credentials_path = "/path/to/service_account_key.json"
