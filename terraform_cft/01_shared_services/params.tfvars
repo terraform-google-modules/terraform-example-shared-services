@@ -13,13 +13,6 @@ dns_services_subdomain = "services"
 iap_tunnel_users = [
   "user:myaccount@my-domain.com",
 ]
-# List of service accounts that will be allowed to post messages to the PubSub
-# topic. If you can, create a group in Cloud Identity and add the CNZ log sink 
-# service accounts to that group. You will find the log sink service account
-# in the outputs of the 02_cn_zone terraform config.
-proxy_notifiers = [
-  "group:proxy-notifiers@my-domain.com",
-]
 # If we choose to use network tags for the firewall rules created by the cloud
 # function, this parameter will allow to configure the network tags that we want
 # to use. We will then need to add at least one of those tags to our service

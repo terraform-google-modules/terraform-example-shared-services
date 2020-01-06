@@ -13,12 +13,6 @@ variable "zone" {
   default     = "europe-west4-a"
 }
 
-variable "proxy_notifiers" {
-  description = "List of service accounts that will be granted the publisher role on the PubSub topic."
-  type        = "list"
-  default     = []
-}
-
 variable "iap_tunnel_users" {
   description = "List of users with access to the instances via IAP."
   type        = "list"
