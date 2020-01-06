@@ -31,7 +31,7 @@ This implementation uses CFT's project factory module to create the project nece
 
 The `env_setup.sh` script helps you apply your configuration on the terraform files. Sinply edit the `env_setup.sh` file, replace the placeholders and run the script.
 
-If you managed run the `env_setup.sh` script successfully, most of the configuration is ready. Scan through the files to make sure everything looks correct..
+If you managed run the `env_setup.sh` script successfully, most of the configuration is ready. Scan through the files to make sure everything looks correct.
 
 Once the configuration is updated:
 
