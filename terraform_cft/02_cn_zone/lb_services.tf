@@ -17,12 +17,14 @@ resource "google_compute_address" "outbound_proxy" {
 
 # Internal load balancer that will distribute load among proxy instances.
 module "outbound_proxy_ilb" {
-  source = "GoogleCloudPlatform/lb-internal/google"
   # FIXME: the current version of this module published under the terraform registry does not
-  # support the request parameter in TCP health checks. The health check will not work correctly
-  # untill the following PR has been accepted and published in the terraform registry:
+  # support the request parameter in TCP health checks. Using the latest verrsion in github
+  # untill the following PR has been published in the terraform registry:
   # Pull request: https://github.com/terraform-google-modules/terraform-google-lb-internal/pull/23
-  version = "2.0.1" # TODO: update the version number once the above mentioned PR is live
+  #source = "GoogleCloudPlatform/lb-internal/google"
+  #version = "2.0.1" # TODO: update the version number once the above mentioned PR is live
+
+  source = "git@github.com:terraform-google-modules/terraform-google-lb-internal.git"
 
   region      = "${var.region}"
   name        = "outbound-proxy"

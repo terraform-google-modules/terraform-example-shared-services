@@ -8,7 +8,7 @@ module "proxy_autoscale_event" {
   # support the include_children option. Using a local version of the module until this PR makes
   # its way to the registry.
   # Pull request: https://github.com/terraform-google-modules/terraform-google-event-function/pull/39
-  source = "../../../terraform-google-event-function/modules/event-folder-log-entry"
+  source = "git@github.com:apsureda/terraform-google-event-function.git?ref=folder-include-children"
 
   # source  = "terraform-google-modules/event-function/google//modules/event-folder-log-entry"
   # version = "1.2.0" # Update version number once the PR is live
