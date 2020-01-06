@@ -14,13 +14,6 @@ provider "google" {
   region = "${var.region}"
 }
 
-provider "google-beta" {
-  version     = "~> 2.15"
-  credentials = "${file(var.gcp_credentials_path)}"
-  project     = "${local.project_id}"
-  region      = "${var.region}"
-}
-
 terraform {
   backend "gcs" {
     bucket = "MY_GCS_BUCKET"
