@@ -19,8 +19,8 @@ provider "google-beta" {
 
 terraform {
   backend "gcs" {
-    bucket = "apszaz-tfstate"
-    prefix = "shsvc-poc-cft/app-project"
+    bucket = "MY_GCS_BUCKET"
+    prefix = "TF_STATE_PREFIX/app-project"
   }
 }
 
@@ -28,8 +28,8 @@ data "terraform_remote_state" "shared_services" {
   backend = "gcs"
 
   config = {
-    bucket = "apszaz-tfstate"
-    prefix = "shsvc-poc-cft/services"
+    bucket = "MY_GCS_BUCKET"
+    prefix = "TF_STATE_PREFIX/services"
   }
 }
 
@@ -37,7 +37,7 @@ data "terraform_remote_state" "projects" {
   backend = "gcs"
 
   config = {
-    bucket = "apszaz-tfstate"
-    prefix = "shsvc-poc-cft/projects"
+    bucket = "MY_GCS_BUCKET"
+    prefix = "TF_STATE_PREFIX/projects"
   }
 }

@@ -10,7 +10,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = "apszaz-tfstate"
-    prefix = "shsvc-poc-cft/projects"
+    bucket = "MY_GCS_BUCKET"
+    prefix = "TF_STATE_PREFIX/projects"
   }
 }
