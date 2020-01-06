@@ -12,18 +12,18 @@
 # At a minimum you will need to change the following parameters
 ###############################################################################
 # ID of the projects that will be created for the demo
-PRJ_SHARED_SERVICES="shsvc-poc-ssv"
-PRJ_APPLICATION="shsvc-poc-app"
+PRJ_SHARED_SERVICES="[YOUR_PROJECT_ID]"
+PRJ_APPLICATION="[YOUR_PROJECT_ID]"
 # Folder ID where the projects will be created
-FOLDER_ID="509020581346"
+FOLDER_ID="[YOUR_FOLDER_ID]"
 # ID of the GCP organization where the projects will be created
 GCP_ORG_ID="116143322321"
 # ID of the GCS bucket that will be used for the terraform remote state
-TF_STATE_BUCKET="apszaz-tfstate" 
+TF_STATE_BUCKET="[YOUR_GCS_BUCKET_ID]"
 # Prefix for the terraform remote state
 TF_STATE_PREFIX="shsvc-poc-cft"
 # Billing account to attach to the projects
-BILLING_ACCOUNT="0131D6-94FD9F-065EAB"
+BILLING_ACCOUNT="[YOUR_BILLING_ID]"
 # User that will be granted access to the instances created. You can add more 
 # users later by modifying the parameters.tf files. Defaults to current user.
 GCLOUD_USER=$(gcloud config list account --format "value(core.account)")
