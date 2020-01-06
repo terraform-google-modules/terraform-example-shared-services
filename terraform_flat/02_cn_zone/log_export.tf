@@ -16,7 +16,7 @@ resource "google_logging_project_sink" "autoscaler" {
   # Filter the proxy MIG scaling logs
   filter = <<EOT
 resource.type="gce_instance_group" AND 
-jsonPayload.resource.name="${google_compute_instance_group_manager.outbound_proxy.name}" AND
+jsonPayload.resource.name="${google_compute_region_instance_group_manager.outbound_proxy.name}" AND
 jsonPayload.resource.type="instanceGroup" AND
 jsonPayload.event_subtype=("compute.instanceGroups.removeInstances" OR "compute.instanceGroups.addInstances") AND
 jsonPayload.event_type="GCE_OPERATION_DONE"

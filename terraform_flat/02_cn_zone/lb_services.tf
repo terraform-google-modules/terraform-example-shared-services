@@ -39,7 +39,7 @@ resource "google_compute_region_backend_service" "outbound_proxy" {
   session_affinity = "CLIENT_IP"
 
   backend {
-    group = "${google_compute_instance_group_manager.outbound_proxy.instance_group}"
+    group = "${google_compute_region_instance_group_manager.outbound_proxy.instance_group}"
   }
 
   health_checks                   = ["${google_compute_health_check.outbound_proxy.self_link}"]

@@ -5,7 +5,7 @@
  */
 
 # Managed instance group for autoscaling proxy instances to meet demand.
-resource "google_compute_instance_group_manager" "outbound_proxy" {
+resource "google_compute_region_instance_group_manager" "outbound_proxy" {
   name               = "squid-igm"
   project            = "${local.project_id}"
   base_instance_name = "outbound-proxy"
@@ -13,16 +13,15 @@ resource "google_compute_instance_group_manager" "outbound_proxy" {
     name              = "outbound-proxy"
     instance_template = "${google_compute_instance_template.outbound_proxy.self_link}"
   }
-  zone = "${var.zone}"
+  region = "${var.region}"
 }
 
 # Simple autoscaler configuration based on CPU usage.
-resource "google_compute_autoscaler" "outbound_proxy" {
-  provider = "google-beta"
+resource "google_compute_region_autoscaler" "outbound_proxy" {
   name     = "outbound-proxy-autoscaler"
   project  = "${local.project_id}"
-  zone     = "${var.zone}"
-  target   = "${google_compute_instance_group_manager.outbound_proxy.self_link}"
+  region   = "${var.region}"
+  target   = "${google_compute_region_instance_group_manager.outbound_proxy.self_link}"
 
   autoscaling_policy {
     min_replicas    = 1

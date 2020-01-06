@@ -41,7 +41,7 @@ def fw_updater(event, context):
   cnz_project = pubsub_json['resource']['labels']['project_id']
   instance_group = pubsub_json['resource']['labels']['instance_group_name']
   zone = pubsub_json['resource']['labels']['location']
-  instance_groups_list_instances_request_body = { }
+  region = zone[:-2]
 
   # log the type of event
   if 'event_subtype' in pubsub_json['jsonPayload']:
@@ -59,10 +59,10 @@ def fw_updater(event, context):
   # Look for the external IP addresses attached to the inbstances created by
   # the outboud proxy managed instance group.
   proxy_external_ips = []
-  request = service.instanceGroups().listInstances(project=cnz_project, zone=zone, instanceGroup=instance_group, body=instance_groups_list_instances_request_body)
+  request = service.regionInstanceGroupManagers().listManagedInstances(project=cnz_project, region=region, instanceGroupManager=instance_group)
   while request is not None:
     response = request.execute()
-    for instance in response['items']:
+    for instance in response['managedInstances']:
       if 'instance' in instance:
         instance_url = instance['instance']
         m = re.match('^.*projects/([^/]+)/zones/([^/]+)/instances/([^/]+)$', instance_url)
