@@ -9,19 +9,19 @@ module "outbound_proxy_mig" {
   source  = "terraform-google-modules/vm/google//modules/mig"
   version = "1.3.0"
 
-  project_id        = "${local.project_id}"
-  region            = "${var.region}"
-  hostname          = "outbound-proxy"
-  instance_template = "${module.instance_template_squid.self_link}"
+  project_id          = "${local.project_id}"
+  region              = "${var.region}"
+  hostname            = "outbound-proxy"
+  instance_template   = "${module.instance_template_squid.self_link}"
   autoscaling_enabled = true
-  min_replicas      = 1
-  max_replicas      = 3
+  min_replicas        = 1
+  max_replicas        = 3
   autoscaling_cpu = [
     {
       target = 0.7
     }
   ]
-  cooldown_period = 60
+  cooldown_period      = 60
   hc_initial_delay_sec = 10
 }
 

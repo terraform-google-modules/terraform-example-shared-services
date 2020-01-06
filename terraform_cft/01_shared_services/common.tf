@@ -4,8 +4,8 @@
  * agreement with Google.  
  */
 locals {
-  project_id = "${data.terraform_remote_state.projects.outputs.shared_services_project}"
-  folder_id  = "${data.terraform_remote_state.projects.outputs.folder_id}"
+  project_id      = "${data.terraform_remote_state.projects.outputs.shared_services_project}"
+  folder_id       = "${data.terraform_remote_state.projects.outputs.folder_id}"
   network_link    = "${module.svc_network.network_self_link}"
   subnetwork_link = "${module.svc_network.subnets_self_links[0]}"
 

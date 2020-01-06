@@ -13,16 +13,16 @@ module "proxy_autoscale_event" {
   # source  = "terraform-google-modules/event-function/google//modules/event-folder-log-entry"
   # version = "1.2.0" # Update version number once the PR is live
 
-  filter     = <<EOF
+  filter           = <<EOF
 resource.type="gce_instance_group" AND 
 jsonPayload.resource.name="outbound-proxy-mig" AND
 jsonPayload.resource.type="instanceGroup" AND
 jsonPayload.event_subtype=("compute.instanceGroups.removeInstances" OR "compute.instanceGroups.addInstances") AND
 jsonPayload.event_type="GCE_OPERATION_DONE"
 EOF
-  name       = "proxy-autoscaler-sink"
-  project_id = "${local.project_id}"
-  folder_id  = "${local.folder_id}"
+  name             = "proxy-autoscaler-sink"
+  project_id       = "${local.project_id}"
+  folder_id        = "${local.folder_id}"
   include_children = true
 }
 

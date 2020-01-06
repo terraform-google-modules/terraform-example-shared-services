@@ -3,8 +3,8 @@
  * or representation for any use or purpose. Your use of it is subject to your 
  * agreement with Google.  
  */
-region     = "europe-west4"
-zone       = "europe-west4-c"
+region = "europe-west4"
+zone   = "europe-west4-c"
 # List of users or groups that will be allowed to SSH into the instances of the project.
 iap_tunnel_users = [
   "user:alfonso@apszaz.com",
