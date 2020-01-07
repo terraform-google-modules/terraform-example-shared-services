@@ -17,7 +17,7 @@ PRJ_APPLICATION="[YOUR_PROJECT_ID]"
 # Folder ID where the projects will be created
 FOLDER_ID="[YOUR_FOLDER_ID]"
 # ID of the GCP organization where the projects will be created
-GCP_ORG_ID="116143322321"
+GCP_ORG_ID="[YOUR_ORG_ID]"
 # ID of the GCS bucket that will be used for the terraform remote state
 TF_STATE_BUCKET="[YOUR_GCS_BUCKET_ID]"
 # Prefix for the terraform remote state
@@ -30,7 +30,7 @@ GCLOUD_USER=$(gcloud config list account --format "value(core.account)")
 # Domain of your GCP organization. Defaults to the current user's domain.
 GCP_DOMAIN=$(echo $GCLOUD_USER | cut -d @ -f 2)
 # The path to tha service account's private key to use when running this terraform configuration
-SA_PATH='/patth/to/credentials.json'
+SA_PATH='/path/to/credentials.json'
 
 ###############################################################################
 # Update configuration files
