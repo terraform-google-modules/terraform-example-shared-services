@@ -39,4 +39,4 @@ Once the configuration is updated:
 2. Apply the terraform configuration from the `01_shared_services` folder.
 3. Apply the terraform configuration from the `02_cn_zone` folder.
 
-You should now have a fully functional shared services architecture. 
+You should now have a fully functional shared services architecture.

@@ -52,4 +52,4 @@ Once the configuration is updated:
   b. If you created a proxy notifiers group in Cloud Identity, add the service account to the group.
 4. The Shared service firewall rule will be updated the next time the CNX proxy managed instance group adds or removes an instance. You can manually change the min/max instances in the instance group to provoke this update.
 
-You should now have a fully functional shared services architecture. 
+You should now have a fully functional shared services architecture.

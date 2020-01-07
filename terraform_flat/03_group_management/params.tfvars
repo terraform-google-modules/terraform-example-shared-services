@@ -7,4 +7,5 @@ notifiers_group = "proxy-notifiers@my-domain.com"
 proxy_notifiers = [
   "p9275719931-969086@gcp-sa-logging.iam.gserviceaccount.com",
 ]
-credentials_path = "/Users/alpalacios/Workspaces/credentials/tf-vdf-bootstrap.json"
+gcp_credentials_path = "/path/to/service_account_key.json"
+ 

@@ -27,4 +27,3 @@ EOT
   # group) to the proxy_notifiers variable.
   unique_writer_identity = true
 }
-
