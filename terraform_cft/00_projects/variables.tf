@@ -17,10 +17,12 @@ variable "folder_id" {
 
 variable "shared_services_project" {
   description = "The ID of the shared services project"
+  default     = "shsvc-poc-ssv"
 }
 
 variable "application_project" {
   description = "The ID of the sample application project"
+  default     = "shsvc-poc-app"
 }
 
 variable "project_services" {
